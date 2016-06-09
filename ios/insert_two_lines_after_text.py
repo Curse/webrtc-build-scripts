@@ -8,6 +8,7 @@ FIND = """    ['OS=="ios" or (OS=="mac" and target_arch!="ia32")', {"""
 APPEND = """        { 'target_name': 'libWebRTC_objc', # Injected target using github.com/pristineio/webrtc-build-scripts
           'type': 'shared_library', # We are creating a dummy shared_library so all the dependencies are built as static libraries. i think this is a bug
           'dependencies': [
+            '<(webrtc_root)/system_wrappers/system_wrappers.gyp:metrics_default',
             '<(webrtc_root)/system_wrappers/system_wrappers.gyp:field_trial_default',
             '../talk/app/webrtc/legacy_objc_api.gyp:libjingle_peerconnection_objc',
           ],
